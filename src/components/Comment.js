@@ -96,12 +96,14 @@ ${inputCode}
         <Col md="4">
           <h2>入力</h2>
           <input
+            placeholder="言語を入力..."
             type="text"
             value={lang}
             onChange={(e) => setLang(e.target.value)}
             className="mt-3 mb-3"
           ></input>
           <textarea
+            placeholder="コードを貼り付け"
             value={inputCode}
             onChange={(e) => setInputElement(e.target.value)}
             className="textarea mb-3"
