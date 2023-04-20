@@ -5,16 +5,6 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 // import ReactMarkdown from "react-markdown";
 import axios from "axios";
 
-// テキストをクリップボードにコピーする関数
-function copyTextToClipboard(text) {
-  navigator.clipboard.writeText(text)
-  .then(function() {
-    console.log('Async: Copying to clipboard was successful!'); // コピーに成功した場合のログを出力
-  }, function(err) {
-    console.error('Async: Could not copy text: ', err); // コピーに失敗した場合のエラーログを出力
-  });
-}
-
 const Comment = () => {
   // ユーザーが入力したコードと生成されたコメントを管理するstate
   const [inputCode, setInputElement] = useState("");
@@ -50,7 +40,7 @@ const Comment = () => {
 ## コード
 ${inputCode}
 `;
-// OpenAIのAPIを呼び出して、生成されたコメントを取得する
+        // OpenAIのAPIを呼び出して、生成されたコメントを取得する
         const response = await axios.post(
           `${API_URL}chat/completions`,
           {
@@ -87,6 +77,15 @@ ${inputCode}
       setDisable(false);
     }
   };
+
+  const copyTextToClipboard = (text) => {
+    navigator.clipboard.writeText(text)
+    .then(function() {
+      console.log('Async: Copying to clipboard was successful!'); // コピーに成功した場合のログを出力
+    }, function(err) {
+      console.error('Async: Could not copy text: ', err); // コピーに失敗した場合のエラーログを出力
+    });
+  }
 
   return (
     <Container className="mt-5 mb-5">
