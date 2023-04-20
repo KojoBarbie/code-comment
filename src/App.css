@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.textarea {
+  width: 100%;
+  height: 300px;
+}
+
+pre {
+  padding: 1em;/* 内側の余白 */
+  margin: 0 0 1.5em;/* 外側の余白 */
+  border: solid 1px #eaedf2;/* 枠線 */
+  background: #f3f6fc;/* 背景色 */
+  color: #54687c;/* 文字色 */
+}
+
+code {
+  font-family: Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  font-size: 14px;
+  line-height: 1.4;
+}
