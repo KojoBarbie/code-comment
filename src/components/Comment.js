@@ -28,16 +28,17 @@ const Comment = () => {
       try {
         console.log("now throwing..."); // APIを呼び出す時のログを出力
         let message = `
-# 指示
-以下にある「コード」にあるのは、${lang}で書かれたコードです。あなたは「## 制約」に書いてある制約に従い、このコードに対してコメントを付けて出力してください。修正した方がよい箇所や冗長な箇所があった場合、「TODO」を付けた上でコメントを付けてください。
+# Instructions
+The "code" below is code written in ${lang}. Please add comments to this code according to the constraints written in "## Constraints" below. If there are any parts that need to be modified or are redundant, please add a comment with "TODO".
 
-## 制約
-・コメントは1行のコードにつき2文程度記述してください。
-・コメントはコードの1つ前の行にコメントを書いてください。後ろの行に書いたり、コードの行に一緒に書いてはいけません。
-・コードの形(インデントなど)はもとの形のまま維持してください。
-・コードとコメント以外は、決して文章などを出力しないでください。
+## Constraints
+Please write comments that are about 2 sentences long for each line of code.
+Write comments on the line before the code. Do not write comments after the line or together with the code.
+Please write comments in Japanese.
+Please maintain the original form of the code (including indentation).
+Do not output anything other than the code and comments.
 
-## コード
+## Code
 ${inputCode}
 `;
         // OpenAIのAPIを呼び出して、生成されたコメントを取得する
@@ -51,7 +52,7 @@ ${inputCode}
               {
                 role: "system",
                 content:
-                  "あなたはプロのプログラマーです。私はプログラミング初心者で、コードの意味を深く学習したいと考えています。あなたは私のメンターとして、プログラミングの学習をサポートする立場にあります。",
+                  "You are a professional programmer. I am a beginner in programming and I would like to learn more about the meaning of code. As my mentor, you are in a position to support my learning in programming.",
               },
               {
                 role: "user",
